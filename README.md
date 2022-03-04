@@ -26,7 +26,7 @@
 
 
 - 查看127.0.0.1:1771端口占用（应有psiphon-tunnel-core.exe监听1771端口的）
-- 在Windows的命令行中执行：
+- - 在Windows的命令行中执行：
 
     netstat -ano | findstr 1771
 <br><br>
