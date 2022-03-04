@@ -16,12 +16,13 @@
 
 ## 在Proxy主机上
 - 以管理员身份运行命令行：
-<img src='images/run-cmd-as-admin.png'>
+
+<img src='images/run-cmd-as-admin.png' width=50%>
 <br><br>
 
 ### 1、运行Psiphon并开启Psiphon的本地代理功能
 
-<img src="images/psiphon本地代理.png">
+<img src="images/Psiphon本地代理.png">
 
 
 - 查看127.0.0.1:1771端口占用（应有psiphon-tunnel-core.exe监听1771端口的）
@@ -66,18 +67,24 @@
 ### 设置代理：可以选择1或者2（如果2支持的话）
 
 ### 1、 在主机设置并启用代理
-    服务器：192.168.3.104
-    端口：1991
-<img src='images/MacOS代理.png'>
+服务器：192.168.3.104
+
+端口：1991
+
+<img src='images/MacOS代理.png' width=60%>
 <br><br>
 
 ### 2、 在Psiphon上设置上游代理
 - 桌面端Windows运行software/psiphon3-on-windows.exe并设置上游代理如下：
-<img src='images/Psiphon上游代理.png'>
+
+    <img src='images/Psiphon上游代理.png' width=80%>
+
 <br><br>
 
 - 移动端安装software/PsiphonAndroid.apk，运行Psiphon并设置上游代理如下：
-<img src='images/psiphon-android-1.png'>
-<img src='images/psiphon-android-2.png'>
+
+    <img src='images/psiphon-android-1.png' width=60%>
+
+    <img src='images/psiphon-android-2.png' width=60%>
 
 
