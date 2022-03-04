@@ -7,14 +7,17 @@
 
 
 | 主机 | 操作系统 | 端口 | 应用程序 | 功能 |
-| :--: | :---: | :---: |  :---:| :---: |
-| Client (192.168.3.175) | MacOS | 任意 | 代理应用发送代理请求到192.168.3.104:1991 |
+| :--: | :---: | :---: |  :---:| :--- |
+| Client (192.168.3.175) | MacOS | 任意 | | 代理应用发送代理请求到192.168.3.104:1991 |
 | Proxy (192.168.3.104) | Win 10 | 1991 | svhost.exe | 转发192.168.3.104:1991请求到127.0.0.1:1771 |
-|Proxy (192.168.3.104) | Win 10 | 1771 |Psiphon接收127.0.0.1:1771代理请求 |
+|Proxy (192.168.3.104) | Win 10 | 1771 |Psiphon | 接收127.0.0.1:1771代理请求 |
 
 <br>
 
 ## 在Proxy主机上
+- 以管理员身份运行命令行：
+<img src='images/run-cmd-as-admin.png'>
+<br><br>
 
 ### 1、运行Psiphon并开启Psiphon的本地代理功能
 
@@ -51,6 +54,8 @@
     
     netsh advfirewall firewall add rule name="All ICMP V4" protocol=icmpv4:any,any dir=in action=allow
 <br><br>
+<br><br>
+
 
 ## 在Client主机上
 - （可选）使用代理访问谷歌
@@ -67,4 +72,12 @@
 <br><br>
 
 ### 2、 在Psiphon上设置上游代理
+- 桌面端Windows运行software/psiphon3-on-windows.exe并设置上游代理如下：
 <img src='images/Psiphon上游代理.png'>
+<br><br>
+
+- 移动端安装software/PsiphonAndroid.apk，运行Psiphon并设置上游代理如下：
+<img src='images/psiphon-android-1.png'>
+<img src='images/psiphon-android-2.png'>
+
+
