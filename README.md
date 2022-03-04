@@ -2,7 +2,7 @@
 
 ## 将运行Psiphon的主机作为代理服务器
 
-<img src="images/Psiphon代理部署图">
+<img src="images/Psiphon代理部署图.png">
 
 
 
