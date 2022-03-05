@@ -23,7 +23,7 @@
 
 - 设置代理主机的地址：
 - - 在Windows的命令行中执行（本例是192.168.3.250）：  
-    SET PROXY_ADDRESS=192.168.3.250
+    set PROXY_ADDRESS=192.168.3.250
 
 ### 1、运行Psiphon并开启Psiphon的本地代理功能
 
@@ -37,23 +37,25 @@
     netstat -ano | findstr 1771
 <br><br>
 
-### 2、启动windows的端口转发功能让1991转到1771
+### 2、启动windows的端口转发功能将1991转到1771
 - 在Windows的命令行中执行：
 
     netsh interface portproxy add v4tov4 listenport=1991 listenaddress=%PROXY_ADDRESS% connectport=1771 connectaddress=127.0.0.1 protocol=tcp
+
+    - 查看1991端口监听（应该有svhost.exe监听1991端口的）
+        -   在Windows的命令行中执行：
+
+            netstat -ano | findstr 1991
+        
+    - 如果1991端口没有被监听，可以重启IP Helper服务
+    <img src="images/IP Helper.png">
 <br><br>
 
 ### 3、允许入站请求
 - 在Windows的命令行中执行：
 
     netsh advfirewall firewall add rule name="Open Port 1991" dir=in action=allow protocol=tcp localport=1991
-- 查看1991端口监听（应该有svhost.exe监听1991端口的）
-    -   在Windows的命令行中执行：
 
-        netstat -ano | findstr 1991
-    
-- 如果1991端口没有被监听，可以重启IP Helper服务
-<img src="images/IP Helper.png">
 <br><br>
 
 ### 4、（可选）开启Proxy主机的ICMP入站请求，可以ping一下Proxy的IP地址
