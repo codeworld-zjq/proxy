@@ -22,7 +22,7 @@
 
 ### 1、运行Psiphon并开启Psiphon的本地代理功能
 
-- 运行[psiphon-3-on-windows](software/psiphon3-on-windows.exe)，设置并启用本地代理HTTP/HTTPS端口1771，如下：
+- 运行[psiphon-3-on-windows](software/psiphon3-on-windows.exe)（右键-链接另存为），设置并启用本地代理HTTP/HTTPS端口1771，如下：
 <img src="images/Psiphon本地代理.png" width=80%>
 
 
@@ -76,13 +76,20 @@
 <br><br>
 
 ### 2、 在Psiphon上设置上游代理
-- 桌面端Windows运行[psiphon3-on-windows](software/psiphon3-on-windows.exe)，设置并启用上游代理主机为192.168.3.104，如下：
+- 桌面端Windows运行[psiphon3-on-windows](software/psiphon3-on-windows.exe)（右键-链接另存为），设置并启用上游代理：
+
+    | 主机名称 | 端口 |
+    | :-:    | :-:  |
+    | 192.168.3.104 | 1991 |
 
     <img src='images/Psiphon上游代理.png' width=80%>
 
 <br><br>
 
-- 移动端安装[PsiphonAndroid](software/PsiphonAndroid.apk)，运行Psiphon并设置上游代理如下：
+- 移动端安装[PsiphonAndroid](software/PsiphonAndroid.apk)（右键-链接另存为），运行Psiphon并设置上游代理如下：
+    | 主机地址 | 端口 |
+    | :-:    | :-:  |
+    | 192.168.3.104 | 1991 |
 
     <img src='images/psiphon-android-1.png' width=60%>
 
