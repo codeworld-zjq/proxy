@@ -8,17 +8,22 @@
 
 | 主机 | 操作系统 | 端口 | 应用程序 | 功能 |
 | :--: | :---: | :---: |  :---:| :--- |
-| Client (192.168.3.175) | MacOS | 任意 | | 代理应用发送代理请求到192.168.3.104:1991 |
-| Proxy (192.168.3.104) | Win 10 | 1991 | svhost.exe | 转发192.168.3.104:1991请求到127.0.0.1:1771 |
-|Proxy (192.168.3.104) | Win 10 | 1771 |Psiphon | 接收127.0.0.1:1771代理请求 |
+| Client (192.168.3.175) | MacOS | 任意 | | 代理应用发送代理请求到%PROXY_ADDRESS%:1991 |
+| Proxy (%PROXY_ADDRESS%) | Win 10 | 1991 | svhost.exe | 转发%PROXY_ADDRESS%:1991请求到127.0.0.1:1771 |
+|Proxy (%PROXY_ADDRESS%) | Win 10 | 1771 |Psiphon | 接收127.0.0.1:1771代理请求 |
 
+***%PROXY_ADDRESS% ： 是代理主机的IP地址。写成这样是因为在Windows的命令行中调用变量PROXY_ADDRESS是用双百分号“%”括起变量名的。***
 <br>
 
 ## 在Proxy主机上
 - 以管理员身份运行命令行：
 
-<img src='images/run-cmd-as-admin.png' width=50%>
-<br><br>
+    <img src='images/run-cmd-as-admin.png' width=50%>
+    <br><br>
+
+- 设置代理主机的地址：
+- - 在Windows的命令行中执行（本例是192.168.3.250）：  
+    SET PROXY_ADDRESS=192.168.3.250
 
 ### 1、运行Psiphon并开启Psiphon的本地代理功能
 
@@ -35,7 +40,7 @@
 ### 2、启动windows的端口转发功能让1991转到1771
 - 在Windows的命令行中执行：
 
-    netsh interface portproxy add v4tov4 listenport=1991 listenaddress=192.168.3.104 connectport=1771 connectaddress=127.0.0.1 protocol=tcp
+    netsh interface portproxy add v4tov4 listenport=1991 listenaddress=%PROXY_ADDRESS% connectport=1771 connectaddress=127.0.0.1 protocol=tcp
 <br><br>
 
 ### 3、允许入站请求
@@ -62,13 +67,13 @@
 ## 在Client主机上
 - （可选）使用代理访问谷歌
 
-    curl -x 192.168.3.104:1991 www.google.com
+    curl -x %PROXY_ADDRESS%:1991 www.google.com
 <br><br>
 
 ### 设置代理：可以选择1或者2（如果2支持的话）
 
 ### 1、 在主机设置并启用代理
-服务器：192.168.3.104
+服务器：%PROXY_ADDRESS%
 
 端口：1991
 
@@ -80,7 +85,7 @@
 
     | 主机名称 | 端口 |
     | :-:    | :-:  |
-    | 192.168.3.104 | 1991 |
+    | %PROXY_ADDRESS% | 1991 |
 
     <img src='images/Psiphon上游代理.png' width=80%>
 
@@ -89,7 +94,7 @@
 - 移动端安装[PsiphonAndroid](software/PsiphonAndroid.apk)（右键-链接另存为），运行Psiphon并设置上游代理如下：
     | 主机地址 | 端口 |
     | :-:    | :-:  |
-    | 192.168.3.104 | 1991 |
+    | %PROXY_ADDRESS% | 1991 |
 
     <img src='images/psiphon-android-1.png' width=60%>
 
